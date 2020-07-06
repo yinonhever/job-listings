@@ -20,6 +20,7 @@ const Listing = props => (
                     <span className="listing__bottom-text">{props.location}</span>
                 </div>
             </div>
+            <div className="listing__seperator" />
             <div className="listing__button-row">
                 {props.buttons}
             </div>

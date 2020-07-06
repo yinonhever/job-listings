@@ -12,7 +12,7 @@ const Main = () => {
 
     const filterRowHeight = filterRowSize.height;
     let transform, paddingTop, paddingBottom, paddingBottomAdjusted;
-    if (window.innerWidth > 1100) {
+    if (window.innerWidth > 900) {
         transform = "translateY(-" + filterRowHeight / 2 + "px)";
         paddingTop = "76px";
         paddingBottom = "120px";

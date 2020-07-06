@@ -16,10 +16,14 @@
 
   &--clear {
     background-color: transparent !important;
+    padding: 0;
 
+    &,
     &:hover {
       color: $color-primary;
+    }
 
+    &:hover {
       span {
         position: relative;
 
@@ -33,6 +37,10 @@
           background-color: $color-primary;
         }
       }
+    }
+
+    @include respond(tablet) {
+      color: $color-dark-1 !important;
     }
   }
 }
