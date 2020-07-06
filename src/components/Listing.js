@@ -1,9 +1,30 @@
 import React from "react";
+import Fade from 'react-reveal/Zoom';
 
 const Listing = props => (
-    <div className="listing">
-        
-    </div>
+    <Fade duration={700}>
+        <div className={props.featured ? "listing listing--featured" : "listing"}>
+            <img className="listing__logo" src={props.logo} alt={props.company} />
+            <div className="listing__content">
+                <div className="listing__top-row">
+                    <h2 className="listing__company">{props.company}</h2>
+                    {props.new ? <div className="listing__tag listing__tag--new">New!</div> : null}
+                    {props.featured ? <div className="listing__tag listing__tag--featured">Featured</div> : null}
+                </div>
+                <h1 className="listing__title">{props.title}</h1>
+                <div className="listing__bottom-row">
+                    <span className="listing__bottom-text">{props.posted}</span>
+                    <span className="listing__dot">&bull;</span>
+                    <span className="listing__bottom-text">{props.contract}</span>
+                    <span className="listing__dot">&bull;</span>
+                    <span className="listing__bottom-text">{props.location}</span>
+                </div>
+            </div>
+            <div className="listing__button-row">
+                {props.buttons}
+            </div>
+        </div>
+    </Fade>
 )
 
 export default Listing;

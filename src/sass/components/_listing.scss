@@ -1,0 +1,102 @@
+.listing {
+  background-color: #fff;
+  padding: 3.2rem 4rem;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &--featured::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background-color: $color-primary;
+    border-radius: 100px 0 0 100px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+
+  &__logo {
+    height: 8.8rem;
+    width: 8.8rem;
+    margin-right: 2.4rem;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__top-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+
+  &__company {
+    color: $color-primary;
+    font-size: 1.4rem;
+    margin-right: 1.6rem;
+  }
+
+  &__tag {
+    padding: 0.6rem 0.8rem 0.4rem;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.08px;
+    line-height: 1.273;
+
+    &--new {
+      background-color: $color-primary;
+    }
+
+    &--featured {
+      background-color: $color-dark-2;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    color: $color-dark-2;
+    line-height: 1.333;
+    margin-bottom: 0.8rem;
+  }
+
+  &__bottom-row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__bottom-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $color-dark-1;
+    letter-spacing: -0.12px;
+    line-height: 1.6;
+  }
+
+  &__dot {
+    color: #b7c4c4;
+    margin: 0 1.6rem;
+  }
+
+  &__button-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .button:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+}

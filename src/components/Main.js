@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Zoom from 'react-reveal/Zoom';
 import listings from "../data";
 import Listing from "./Listing";
 import FilterRow from "./FilterRow";
@@ -10,24 +11,28 @@ const Main = () => {
     const [filteredListings, setFilteredListings] = useState(listings);
 
     const handleFilter = selection => {
-        setFilters(filters => [...filters, selection]);
-        setFilteredListings(listings.filter(listing => isMatchingFilters(listing, filters)));
+        if (!filters.includes(selection)) {
+            const newFilters = [...filters, selection];
+            setFilters(newFilters);
+            setFilteredListings(listings.filter(listing => isMatchingFilters(listing, newFilters)));
+        }
     }
 
     const handleRemoveFilter = selection => {
-        setFilters(filters => filters.filter(item => item !== selection));
-        setFilteredListings(listings.filter(listing => isMatchingFilters(listing, filters)));
+        const newFilters = filters.filter(item => item !== selection);
+        setFilters(newFilters);
+        setFilteredListings(listings.filter(listing => isMatchingFilters(listing, newFilters)));
     }
 
-    const isMatchingFilters = (item, selections) => {
-        const combined = [item.role, item.level, ...item.languages, ...item.tools];
-        return arrayContainsArray(combined, selections);
+    const handleClear = () => {
+        setFilters([]);
+        setFilteredListings(listings);
     }
 
-    const arrayContainsArray = (superset, subset) => {
-        return subset.every(value => {
-            return (superset.indexOf(value) >= 0);
-        });
+    const isMatchingFilters = (listing, selections) => {
+        const combined = [listing.role, listing.level, ...listing.languages, ...listing.tools];
+        const matching = selections.every(value => combined.indexOf(value) >= 0);
+        return matching;
     }
 
     return (
@@ -35,7 +40,7 @@ const Main = () => {
             {filters.length === 0 ? null : (
                 <FilterRow buttons={filters.map(filter => (
                     <FilterButton text={filter} key={filter} clicked={handleRemoveFilter} />
-                ))} />
+                ))} cleared={handleClear} />
             )}
 
             {filteredListings.map(listing => (
@@ -45,7 +50,7 @@ const Main = () => {
                     company={listing.company}
                     new={listing.new}
                     featured={listing.featured}
-                    position={listing.position}
+                    title={listing.position}
                     posted={listing.postedAt}
                     contract={listing.contract}
                     location={listing.location}

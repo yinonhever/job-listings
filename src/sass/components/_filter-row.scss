@@ -1,0 +1,18 @@
+.filter-row {
+  position: absolute;
+  top: 0;
+  left: $padding-side-desktop;
+  right: $padding-side-desktop;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 2rem 4rem;
+  border-radius: 4px;
+  box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__buttons {
+    display: flex;
+  }
+}
