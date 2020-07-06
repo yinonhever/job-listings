@@ -1,8 +1,8 @@
 import React from "react";
-import Fade from 'react-reveal/Zoom';
+import Zoom from "react-reveal/Zoom";
 
 const Listing = props => (
-    <Fade duration={700}>
+    <Zoom duration={700}>
         <div className={props.featured ? "listing listing--featured" : "listing"}>
             <img className="listing__logo" src={props.logo} alt={props.company} />
             <div className="listing__content">
@@ -24,7 +24,7 @@ const Listing = props => (
                 {props.buttons}
             </div>
         </div>
-    </Fade>
+    </Zoom>
 )
 
 export default Listing;

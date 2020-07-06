@@ -1,5 +1,5 @@
 import React from "react";
-import Zoom from 'react-reveal/Zoom';
+import Zoom from "react-reveal/Zoom";
 
 const FilterButton = props => (
     <Zoom duration={600}>

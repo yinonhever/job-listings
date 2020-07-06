@@ -20,6 +20,10 @@
 
   &:not(:last-child) {
     margin-bottom: 2.4rem;
+
+    @include respond(tablet) {
+      margin-bottom: 4rem;
+    }
   }
 
   &__logo {

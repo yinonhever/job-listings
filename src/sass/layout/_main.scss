@@ -1,4 +1,8 @@
 .main {
-  padding: 7.6rem $padding-side-desktop 12rem;
-  position: relative;
+  //padding on top and bottom is set through React inline styling
+  padding: 0 $padding-side-desktop;
+
+  @include respond(tablet-land) {
+    padding: 0 $padding-side-mobile;
+  }
 }
