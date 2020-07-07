@@ -15,13 +15,18 @@
 
   &__buttons {
     display: flex;
+    justify-content: flex-start;
+
+    .filter-button:not(:last-child) {
+      margin-right: 1.6rem;
+    }
 
     @include respond(tablet) {
       flex-wrap: wrap;
       margin: -0.8rem;
 
       .filter-button {
-        margin: 0.8rem;
+        margin: 0.8rem !important;
       }
     }
   }
