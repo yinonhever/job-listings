@@ -10,8 +10,11 @@
   transition: background-color 0.5s, color 0.25s;
 
   &:hover {
-    background-color: $color-primary;
-    color: #fff;
+    @media (hover: hover) {
+      // isn't applied on touch devices
+      background-color: $color-primary;
+      color: #fff;
+    }
   }
 
   &--clear {
